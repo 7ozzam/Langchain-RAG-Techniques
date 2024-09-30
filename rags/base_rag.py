@@ -203,7 +203,7 @@ class BaseRAG(ABC):
         """UI for the sidebar interactions."""
         uploaded_file = self.file_upload_ui()
         self.chunk_size = st.number_input('Chunk size:', min_value=100, max_value=4096, value=1024, on_change=self.clear_history)
-        self.k = st.number_input('Number of results (k):', min_value=1, max_value=50, value=3, on_change=self.clear_history)
+        
         add_data = st.button('Add Data', on_click=self.clear_history)
         if uploaded_file and add_data:
             self.handle_file_upload(uploaded_file, self.chunk_size)
@@ -268,6 +268,7 @@ class BaseRAG(ABC):
             query = st.text_input('Ask a question:')
             if query and 'vs' in st.session_state:
                 vector_store = st.session_state.vs
+                self.k = st.number_input('Number of results (k):', min_value=1, max_value=50, value=3, on_change=self.clear_history)
                 self.answer = self.ask_and_get_answer(vector_store, query, k=self.k)
 
             if self.answer and 'result' in self.answer:
