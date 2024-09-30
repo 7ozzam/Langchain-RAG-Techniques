@@ -265,10 +265,10 @@ class BaseRAG(ABC):
 
         col1, col2 = st.columns(2)
         with col1:
+            self.k = st.number_input('Number of results (k):', min_value=1, max_value=50, value=3, on_change=self.clear_history)
             query = st.text_input('Ask a question:')
             if query and 'vs' in st.session_state:
                 vector_store = st.session_state.vs
-                self.k = st.number_input('Number of results (k):', min_value=1, max_value=50, value=3, on_change=self.clear_history)
                 self.answer = self.ask_and_get_answer(vector_store, query, k=self.k)
 
             if self.answer and 'result' in self.answer:

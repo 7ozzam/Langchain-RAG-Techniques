@@ -83,7 +83,7 @@ def main():
                     
                 
                 st.divider()
-                if ((st.session_state.get('llm_source') is 'huggingface' or st.session_state.get('embed_model_source') is 'huggingface')):
+                if ((st.session_state.get('llm_source') ==  'huggingface' or st.session_state.get('embed_model_source') == 'huggingface')):
                     hf_token = st.text_input("Huggingface Token", type="password", value=config['huggingface_api_key'], key="huggingface_api_key")
     
     with playground_tab:
