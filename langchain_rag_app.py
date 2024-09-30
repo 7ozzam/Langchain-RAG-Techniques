@@ -70,7 +70,7 @@ def main():
                 st.divider()
                 # with embedding_tab:
 
-                embedding_model_source = st.radio(key="embed_model_source",label="Embed Model Source", options=options)
+                embedding_model_source = st.radio(key="embed_model_source",label="Embed Model Source", options=["ollama"])
 
                     
                 
@@ -79,7 +79,7 @@ def main():
                     hf_embed_model = st.text_input("HF Embed Model", type="default", value="sentence-transformers/all-MiniLM-l6-v2", key="huggingface_embed_model")
                     
                 elif (embedding_model_source == "huggingface"):
-                    ollama_embed_model = st.text_input("Ollama Embed Model", type="default", value="nomic-embed-text", key="ollama_embed_model")
+                    ollama_embed_model = st.text_input("Ollama Embed Model", type="default", value="nomic-embed-text", key="ollama_embed_model", disabled=True)
                     
                 
                 st.divider()
