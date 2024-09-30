@@ -7,5 +7,3 @@ files/
 chat-rag-env/
 vectorstore/
 .env
-faiss/*
-uploads/*
