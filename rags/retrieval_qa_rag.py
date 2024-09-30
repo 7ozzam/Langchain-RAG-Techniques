@@ -18,7 +18,7 @@ from langchain_core.prompts import ChatPromptTemplate
 class RetrievalQaRAG(BaseRAG):
     """Implementation of the RAG system using FAISS for vector storage and retrieval."""
 
-    def __init__(self, chunk_size, chunk_overlap, vector_store_path="faiss"):
+    def __init__(self, chunk_size, chunk_overlap, vector_store_path="./faiss"):
         super().__init__()
         self.chunk_method = 'RetrievalQA'
         self.chunk_size = chunk_size

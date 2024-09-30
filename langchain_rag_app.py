@@ -7,7 +7,7 @@ import sys
 
 def load_rag_implementation(technique="faiss"):
     if technique == "faiss":
-        return RetrievalQaRAG(chunk_size=512, chunk_overlap=1, vector_store_path="faiss")
+        return RetrievalQaRAG(chunk_size=512, chunk_overlap=1, vector_store_path="./faiss")
     elif technique == "full_document":
         return FullDocumentRAG(chunk_size=512, chunk_overlap=30)
     else:
@@ -46,7 +46,7 @@ def main():
             
         with config_tab:
                 st.subheader('LLM RAG Configuration')
-                rag_technique = st.selectbox("Choose RAG Technique", ["faiss", "full_document"])
+                rag_technique = st.selectbox("Choose RAG Technique", ["faiss", "full_document"], disabled=True)
                 
                 # Load the appropriate RAG implementation
                 rag_instance = load_rag_implementation(technique=rag_technique)
