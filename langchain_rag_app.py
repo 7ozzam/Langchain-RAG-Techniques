@@ -25,7 +25,7 @@ def load_env_config():
     
 def main():
     config = load_env_config()
-    st.set_page_config(layout="wide")
+    st.set_page_config(page_title="Woovl | RAG Techniques Demo",layout="wide")
     st.title("RAG Techniques Demo")
                             
                         
@@ -70,7 +70,7 @@ def main():
                 st.divider()
                 # with embedding_tab:
 
-                embedding_model_source = st.radio(key="embed_model_source",label="Embed Model Source", options=["ollama"])
+                embedding_model_source = st.radio(key="embed_model_source",label="Embed Model Source", options=options)
 
                     
                 
@@ -79,7 +79,7 @@ def main():
                     hf_embed_model = st.text_input("HF Embed Model", type="default", value="sentence-transformers/all-MiniLM-l6-v2", key="huggingface_embed_model")
                     
                 elif (embedding_model_source == "ollama"):
-                    ollama_embed_model = st.text_input("Ollama Embed Model", type="default", value="nomic-embed-text", key="ollama_embed_model", disabled=True)
+                    ollama_embed_model = st.text_input("Ollama Embed Model", type="default", value="nomic-embed-text", key="ollama_embed_model")
                     
                 
                 st.divider()
