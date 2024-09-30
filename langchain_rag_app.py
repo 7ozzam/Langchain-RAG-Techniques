@@ -78,7 +78,7 @@ def main():
                 if (embedding_model_source == "huggingface"):
                     hf_embed_model = st.text_input("HF Embed Model", type="default", value="sentence-transformers/all-MiniLM-l6-v2", key="huggingface_embed_model")
                     
-                elif (embedding_model_source == "huggingface"):
+                elif (embedding_model_source == "ollama"):
                     ollama_embed_model = st.text_input("Ollama Embed Model", type="default", value="nomic-embed-text", key="ollama_embed_model", disabled=True)
                     
                 
